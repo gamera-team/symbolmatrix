@@ -1,7 +1,7 @@
+_This is a (hopefully temporary) fork of http://github.com/fetcher/symbolmatrix which incorporates some changes from @diminish7 that we need for https://github.com/gamera-team/gamera_
+
 SymbolMatrix
 ============
-
-[![Build Status](https://secure.travis-ci.org/Fetcher/symbolmatrix.png)](http://travis-ci.org/Fetcher/symbolmatrix) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/Fetcher/symbolmatrix)
 
 > Strongly inspired in [SymbolTable][symboltable] gem by [Michael Jackson][michael-jackson-home] (thanks a lot!)
 
@@ -33,41 +33,41 @@ If you are familiar with SymbolTable you may have noticed that, so far, the same
 
     ```ruby
     require "symbolmatrix"
-    
+
     m = SymbolMatrix :quantum => { :nano => "data" }
 
     m.quatum.nano # => "data"
     ```
 
 2.  **JSON/YAML autoloading**
-    
+
     ```ruby
     require "symbolmatrix"
-    
+
     m = SymbolMatrix "quantum: of solace"
     m.quantum   # => "of solace"
-    
+
     # Or alternatively
     m.from.yaml "quantum: of solace"
-    
+
     # Provided a file exists "configuration.yaml" with "database_uri: mysql://root@localhost/database"
     m.from.file "configuration.yaml"
     m.database_uri  # => "mysql://root@localhost/database"
-    
+
     # Or simply
     m = SymbolMatrix "configuration.yaml"
     ```
-    
+
     Since all JSON is valid YAML... yey, it works with JSON too!
 	```ruby
     require 'symbolmatrix'
-    
+
     data = SymbolMatrix '{"message":"Awesome"}'
     data.message # => 'Awesome'
     ```
 
 3.  **Own serialization format for command line**
-    
+
     Look the next section
 
 [symboltable]: https://github.com/mjijackson/symboltable
@@ -79,7 +79,7 @@ SMAS: SymbolMatrix Serialization
 --------------------------------
 
 The serialization format is designed to serve as an alternative for the command line environment, when multiline (YAML) and special characters (JSON) are not well suited. It's very intuitive and designed to closely resemble the way SymbolMatrix is used within Ruby code. For example:
-    
+
 ```ruby
 require 'symbolmatrix'
 
@@ -98,9 +98,9 @@ You can get the serialization from any SymbolMatrix:
 ```ruby
 require 'symbolmatrix'
 
-SymbolMatrix(:where => { 
-  :is => { 
-    :paris  => "france", 
+SymbolMatrix(:where => {
+  :is => {
+    :paris  => "france",
     :roma   => "italia"
   }
 ).to.serialization # => 'where.is.paris:france where.is.roma:italia'
@@ -123,7 +123,7 @@ If for some reason you don't want this class to use YAML nor the serialization f
 
 ### Exceptions
 
-Whenever a key is not found in the SymbolMatrix, a custom `SymbolMatrix::KeyNotDefinedException` will be raised. 
+Whenever a key is not found in the SymbolMatrix, a custom `SymbolMatrix::KeyNotDefinedException` will be raised.
 Similarly, if you attempt to use an inconvertible key (inconvertible to `Symbol`) a `SymbolMatrix::InvalidKeyException` will be raised.
 
 Changelog for 1.0.0
