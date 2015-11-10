@@ -1,5 +1,9 @@
 _This is a (hopefully temporary) fork of http://github.com/fetcher/symbolmatrix which incorporates some changes from @diminish7 that we need for https://github.com/gamera-team/gamera_
 
+[![Build Status](https://secure.travis-ci.org/gamera-team/symbolmatrix.png)](http://travis-ci.org/gamera-team/symbolmatrix)
+[![Dependency Status](https://gemnasium.com/gamera-team/symbolmatrix.png)](https://gemnasium.com/gamera-team/symbolmatrix)
+
+
 SymbolMatrix
 ============
 
